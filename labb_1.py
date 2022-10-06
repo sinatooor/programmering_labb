@@ -14,7 +14,7 @@ def arithmetic():
 
         return round(sum_arithmetic,0)
     except ValueError:
-        print("Wronge type of input!")
+        print("Wrong type of input!")
         sys.exit()
         
 
@@ -27,7 +27,7 @@ def geometric():
         sum_geometric = first_element * (((quota**amount_n) - 1) / (quota - 1))
         return round(sum_geometric,0)
     except ValueError:
-        print("Wronge type of input!")
+        print("Wrong type of input!")
         sys.exit()
         
 
