@@ -13,4 +13,5 @@ def geometric():
         return round(sum_geometric,0)
     except ValueError:
         print("Wrong type of input!")
-        sys.exit()
+        geometric()
+        

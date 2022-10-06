@@ -66,7 +66,6 @@ elif first_result == second_result:
     print("The answers are equal")
 
 
-564
 
 
 
