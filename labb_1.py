@@ -19,7 +19,8 @@ def arithmetic():
         print(f"{colorama.Fore.RED}Wronge type of input!")
         sys.exit()
         
-        
+         
+         
 
 # function for geometric sums
 def geometric():
