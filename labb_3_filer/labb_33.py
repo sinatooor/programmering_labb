@@ -13,11 +13,6 @@ def arithmetic():
     differens = typed_input.check_float("What is the value of d? ")
     amount = typed_input.check_int("What is the value of n? ")
 
-    #checks for invalid n values <= 0
-    while amount<=0:
-        print(f"{colorama.Fore.RED}Wrong input! n needs to be bigger than 0")
-        amount = typed_input.check_int("What is the value of n? ")
-
     # function for sum
     n_element = first_element + differens * (amount - 1)
     sum_arithmetic= amount * ((first_element + n_element) / 2)
@@ -31,11 +26,6 @@ def geometric():
     first_element = typed_input.check_float("What is the value of g1? ")
     quota = typed_input.check_float("What is the value of q? ")
     amount_n = typed_input.check_int("What is the value of n? ")
-
-    #checks for invalid n values <= 0
-    while amount_n<=0:
-        print(f"{colorama.Fore.RED}Wrong input! n needs to be bigger than 0")
-        amount_n = typed_input.check_int("What is the value of n? ")
 
     #function for sum
     sum_geometric = first_element * (((quota**amount_n) - 1) / (quota - 1))
