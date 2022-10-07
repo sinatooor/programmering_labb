@@ -2,6 +2,7 @@ from operator import truediv
 import colorama
 
 def check_int(prompt):
+    """function that """
     while True:
         try:
             value = int(input(prompt))
@@ -21,9 +22,10 @@ def check_float(prompt):
             break
     return value
 
+#denna "fungerar inte" går vidare även om man skriver annat än a och b
 def check_ga(prompt):
     while True:
-        value = (input(prompt)).lower()
+        value = str((input(prompt)).lower())
         if value == "g" or "a":
             break
         else:
