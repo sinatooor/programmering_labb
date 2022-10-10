@@ -1,8 +1,7 @@
 # programmering_labb
-5
-5
 
-balls
+Reminders
+1- No code repetetion, repeating code should be turned into a function
+2- comments, all functions should have a comment
+3- colorcode
 
-
-my balls
