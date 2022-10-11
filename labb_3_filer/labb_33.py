@@ -54,8 +54,8 @@ elif first_answer == "g":
 second_answer = typed_input.check_ga(
     f"Is your second sum arthmetic or geometric? {colorama.Fore.GREEN}"
 )  
-
-print(end="blabla")
+print(end="jb")
+print(end="jb")
 if second_answer == "a":
     second_result = arithmetic()
 
