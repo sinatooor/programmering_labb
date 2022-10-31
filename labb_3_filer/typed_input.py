@@ -2,6 +2,9 @@ from operator import truediv
 import colorama
 
 
+
+print("sina")
+
 def check_int(prompt):
     """function that checks so input is int"""
     while True:
@@ -56,3 +59,5 @@ def check_ga(prompt):
             return value
         else:
             print(f"{colorama.Fore.RED}Wrong input! try again with a or g")
+
+
