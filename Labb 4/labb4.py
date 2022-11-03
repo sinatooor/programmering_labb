@@ -13,10 +13,10 @@ class Student:
 #main function       
 def main():
     
-    first_name = input("First name: ")
-    last_name = input("Last name: ")
+    full_name = input("Name: ").title().strip()
+    first_name, last_name = full_name.split(" ")
     id_number = input("Id number: ")
-    student = Student(first_name,last_name,id_number)
+    student = Student(first_name, last_name, id_number)
 
     print(student)
 
