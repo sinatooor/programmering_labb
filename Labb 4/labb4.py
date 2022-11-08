@@ -23,6 +23,9 @@ def delete_student():
 
 def main():
     """Main function of program"""
+    name_of_file = input("What is the full name of the file? ")
+    file = open(name_of_file, "r")
+
     answer = "a"
     while answer != "x":
         print("Add student = a, Edit student = e, Delete student = d, End program = x")
