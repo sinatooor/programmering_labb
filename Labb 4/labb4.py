@@ -23,11 +23,16 @@ def delete_student():
 
 def main():
     """Main function of program"""
-    full_name = input("Name: ").title().strip()
-    first_name, last_name = full_name.split(" ")
-    id_number = input("Id number: ")
-
-    print(student)
+    answer = "a"
+    while answer != "x":
+        print("Add student = a, Edit student = e, Delete student = d, End program = x")
+        answer = input("What would you like to do? ")
+        full_name = input("Name: ").title().strip()
+        first_name, last_name = full_name.split(" ")
+        student1 = Student(first_name,last_name, input("Id number: "))
+    
+   
+    print(f"{student1.first_name} {student1.last_name}, with id {student1.id_number}")
 
 
 main()
