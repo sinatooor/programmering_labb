@@ -8,7 +8,14 @@ class Student:
     def __str__(self):
         return str(self.first_name + self.last_name + self.id_number)
 
-
+def searching_file(name_of_file):
+    while true:
+        try:
+            with open(str(name_of_file), r) in file:
+        except FileNotFoundError:
+            print("This file does not exist try! try agian")
+        return file
+    
 def add_student():
     """Adds new student object"""
 
