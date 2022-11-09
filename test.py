@@ -28,7 +28,7 @@ class Student:
 
 
 def main():
-    a_student = Student(first_name, last_name, id_number)
+    a_student = Student(Student.get)
 
     print(a_student)
 

@@ -1,17 +1,18 @@
 class School:
-    
+    def __init__(self, student):
+        pass
 
 class Student:
     # student is a object with 3 parameters
     def __init__(self, first_name, last_name, id_number):
-
+        
         if not id_number or not first_name or not last_name:
             raise ValueError("Missing value")
         if len(id_number)!=10:
             raise ValueError("Incorrect ID number")
         if isinstance(id_number, int) != True:
             raise ValueError("Incorrect ID number, It should be digits")
-
+        
 
         self.first_name = first_name
         self.last_name = last_name
@@ -26,6 +27,7 @@ def searching_file(name_of_file):
     while true:
         try:
             with open(str(name_of_file), r) in file:
+                pass
         except FileNotFoundError:
             print("This file does not exist try! try agian")
         return file
@@ -33,20 +35,26 @@ def searching_file(name_of_file):
 
 def main():
     """Main function of program"""
-    name_of_file = input("What is the full name of the file? ")
-
-    file = open(name_of_file, "r")
-
-    answer = "a"
-    while answer != "x":
-        print("Add student = a, Edit student = e, Delete student = d, End program = x")
-        answer = input("What would you like to do? ")
-        full_name = input("Name: ").title().strip()
-        first_name, last_name = full_name.split(" ")
-        student1 = Student(first_name,last_name, input("Id number: "))
 
 
-    print(f"{student1.first_name} {student1.last_name}, with id {student1.id_number}")
+    file = open("students.txt", "r")
+    firstline = file.readline()
+    students = 30*[None]
+    amount_of_students = 0
+    while firstline != "":
+        id_number = file.readline()
+        last_name = file.readline()
+        first_name = file.readline()
+        student = Student(first_name,last_name, id_number)
+        students.append(student)
+        amount_of_students = amount_of_students+1
+    file.close()   
+
+
+    n = 0
+    while n != amount_of_students:
+        print(f"{students[n].first_name} {students[n].last_name}, with id {students[n].id_number}")
+        n=n+1
 
 
 main()
