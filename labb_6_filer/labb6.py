@@ -1,4 +1,26 @@
 class School:
+    
+    students = []
+
+
+
+
+        def read_students(self):
+        """ reads all students and add it to the students container
+        argument: self
+        Retuns: nothing
+        """
+        fil = open("students.txt", "r")
+        first_name = fil.readline().strip()
+        while first_name:
+            first_name = int(fil.readline().strip())
+            last_name = int(fil.readline().strip())
+            id_number = float(fil.readline().strip())
+            new = Student(first_name, last_name , id_number)
+            students.append(new)
+            first_name = fil.readline().strip()
+        fil.close()
+
 
 
 
