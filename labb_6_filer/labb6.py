@@ -1,6 +1,7 @@
 class School:
-    def __init__(self, student):
-        pass
+
+
+
 
 class Student:
     # student is a object with 3 parameters
@@ -39,9 +40,10 @@ def main():
     id_number = 2
     file = open("students.txt", "r")
     students = []
+    
     amount_of_students = 0
     while id_number != "":
-        id_number = file.readline()
+        id_number = 
         last_name = file.readline()
         first_name = file.readline()
         student = Student(first_name,last_name, id_number)
@@ -57,3 +59,4 @@ def main():
 
 
 main()
+
