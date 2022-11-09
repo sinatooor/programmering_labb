@@ -11,6 +11,8 @@ class Student:
             raise ValueError("Incorrect ID number")
         if isinstance(id_number, int) != True:
             raise ValueError("Incorrect ID number, It should be digits")
+        if last_name == first_name:
+            raise ValueError("First name and last name can not be the same")
 
 
         self.first_name = first_name
