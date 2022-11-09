@@ -3,7 +3,7 @@ import colorama
 
 
 
-print("sina")
+
 
 def check_int(prompt):
     """function that checks so input is int"""
