@@ -36,25 +36,24 @@ def searching_file(name_of_file):
 def main():
     """Main function of program"""
 
-
+    id_number = 2
     file = open("students.txt", "r")
-    firstline = file.readline()
-    students = 30*[None]
+    students = []
     amount_of_students = 0
-    while firstline != "":
+    while id_number != "":
         id_number = file.readline()
         last_name = file.readline()
         first_name = file.readline()
         student = Student(first_name,last_name, id_number)
         students.append(student)
-        amount_of_students = amount_of_students+1
+        amount_of_students +=1
     file.close()   
 
 
     n = 0
     while n != amount_of_students:
         print(f"{students[n].first_name} {students[n].last_name}, with id {students[n].id_number}")
-        n=n+1
+        n+=1
 
 
 main()
