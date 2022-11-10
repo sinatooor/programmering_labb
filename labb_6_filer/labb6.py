@@ -1,28 +1,65 @@
+# -*- coding: utf-8 -*-
+import typed_input
+import colorama
+
 class School:
     
     students = []
 
 
+    @classmethod
+    def print_students(cls):
+        """prints all students, full name and id, in school"""
+
+        for i in School.students:
+            print(i)
+        print("")
 
 
-        def read_students(self):
+    @classmethod
+    def add_student(cls):
+        """adds a student to school list"""
+        try :
+            full_name = input("Write first name and last name with space: ").title().strip()
+        except ValueError:
+            print("Type only first and last name! ")
+        first_name, last_name = full_name.split()
+        id_number = typed_input.check_int("What is the id number? ")
+        School.students.append(Student(first_name, last_name, int(id_number)))
+    
+    @classmethod
+    def read_student_list(cls,file):
         """ reads all students and add it to the students container
-        argument: self
+        argument: file name
         Retuns: nothing
         """
-        fil = open("students.txt", "r")
-        first_name = fil.readline().strip()
-        while first_name:
-            first_name = int(fil.readline().strip())
-            last_name = int(fil.readline().strip())
-            id_number = float(fil.readline().strip())
-            new = Student(first_name, last_name , id_number)
-            students.append(new)
-            first_name = fil.readline().strip()
-        fil.close()
 
+        while True:
+            id_number = file.readline().strip()
+            last_name = str(file.readline().strip())
+            first_name = str(file.readline().strip())
+            if id_number == "":
+                break
 
+            new = Student(first_name, last_name , int(id_number))
+            School.students.append(new)
+        file.close()
 
+    @classmethod
+    def search_students(cls):
+        first_name = input("What is the first name of the person? ")
+        n = 0
+        while n <= len(School.students):
+            if School.students[n].first_name == first_name:
+                print(School.students[n])
+                break
+            n+=1
+        
+
+        
+
+            
+        
 
 
 class Student:
@@ -31,7 +68,7 @@ class Student:
         
         if not id_number or not first_name or not last_name:
             raise ValueError("Missing value")
-        if len(id_number)!=10:
+        if len(str(id_number))!=10:
             raise ValueError("Incorrect ID number")
         if isinstance(id_number, int) != True:
             raise ValueError("Incorrect ID number, It should be digits")
@@ -42,42 +79,73 @@ class Student:
         self.id_number = id_number
 
     def __str__(self):
-        return str(self.first_name + self.last_name + self.id_number)
+        M = (colorama.Fore.MAGENTA)
+        W = (colorama.Fore.WHITE)
+        return f"{M}Name: {W}{self.first_name} {self.last_name} {M}ID number: {W}{self.id_number}"
 
 
 
-def searching_file(name_of_file):
-    while true:
+
+
+def check_file_name():
+    """checks if given filename exists"""
+    while True:
         try:
-            with open(str(name_of_file), r) in file:
-                pass
+            file_name = input(f"{colorama.Fore.BLUE}What is the name of file? {colorama.Fore.WHITE}")
+            file = open(file_name, encoding='utf-8')
         except FileNotFoundError:
-            print("This file does not exist try! try agian")
-        return file
+            print(f"{colorama.Fore.RED}This file does not exist try! try again{colorama.Fore.WHITE}")
+
+        else:
+            break
+
+    return file
+
+
 
 
 def main():
     """Main function of program"""
+    print(School)
+    while True:
+        user_answer = menu_choice()
+        if user_answer == "a":
+            School.add_student()
+        elif user_answer == "d":
+            School.print_students()
+        elif user_answer == "r":
+            School.read_student_list(check_file_name())
+            School.print_students()  
+        elif user_answer == "s":
+            School.search_students() 
+        elif user_answer == "x":
 
-    id_number = 2
-    file = open("students.txt", "r")
-    students = []
+            break
+
+
     
-    amount_of_students = 0
-    while id_number != "":
-        id_number = 
-        last_name = file.readline()
-        first_name = file.readline()
-        student = Student(first_name,last_name, id_number)
-        students.append(student)
-        amount_of_students +=1
-    file.close()   
+    
 
 
-    n = 0
-    while n != amount_of_students:
-        print(f"{students[n].first_name} {students[n].last_name}, with id {students[n].id_number}")
-        n+=1
+def menu_choice():
+    """Menu which get users input
+    Argument : nothing
+    Returns: user's choice 
+    """
+    
+    print(f"{colorama.Fore.GREEN}Press A to add new a student")
+    print("Press D to display all students")
+    print("Press R to read in a file")
+    print("Press S to search for a student")
+    print("Press X to exit the program")
+    choice = input(f"{colorama.Fore.BLUE}What do you want to do? {colorama.Fore.WHITE}").lower()
+    print("")
+    return choice
+
+
+     
+
+
 
 
 main()
