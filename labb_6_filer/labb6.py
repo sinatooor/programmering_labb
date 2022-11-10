@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import typed_input
 import colorama
+import sys
 
 class School:
     
@@ -48,12 +49,17 @@ class School:
     @classmethod
     def search_students(cls):
         first_name = input("What is the first name of the person? ")
+
+
         n = 0
         while n <= len(School.students):
             if School.students[n].first_name == first_name:
                 print(School.students[n])
                 break
+
             n+=1
+
+
         
 
         
@@ -106,7 +112,6 @@ def check_file_name():
 
 def main():
     """Main function of program"""
-    print(School)
     while True:
         user_answer = menu_choice()
         if user_answer == "a":

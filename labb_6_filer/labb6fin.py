@@ -1,11 +1,10 @@
-# -*- coding: utf-8 -*-
 import typed_input
 import colorama
 
 
 class School:
-
-    students = []
+    
+    students = []  #creates an empty list container
 
     @classmethod
     def print_students(cls):
@@ -18,15 +17,24 @@ class School:
     @classmethod
     def add_student(cls):
         """adds a student to school list"""
-        try:
-            full_name = (
-                input("Write first name and last name with space: ").title().strip()
-            )
-        except ValueError:
-            print("Type only first and last name! ")
-        first_name, last_name = full_name.split()
-        id_number = typed_input.check_int("What is the id number? ")
-        School.students.append(Student(first_name, last_name, int(id_number)))
+        while True:
+            try:
+                full_name = (
+                    input("Write first name and last name with space: ").title().strip()
+                )
+                first_name, last_name = full_name.split()
+            except ValueError:
+                print(f"{colorama.Fore.RED}Type only first and last name! {colorama.Fore.WHITE}")
+            else:
+                break
+        while True:
+            try:   
+                id_number = typed_input.check_int("What is the id number? ")
+                School.students.append(Student(first_name, last_name, int(id_number)))
+            except ValueError:
+                print(f"{colorama.Fore.RED}Invalid id number! {colorama.Fore.WHITE}")
+            else:
+                break
 
     @classmethod
     def read_student_list(cls, file):
@@ -48,6 +56,7 @@ class School:
 
     @classmethod
     def search_students(cls):
+        """searchs for a student by its first name"""
         first_name = input("What is the first name of the person? ")
         n = 0
         while n <= len(School.students):
@@ -55,6 +64,7 @@ class School:
                 print(School.students[n])
                 break
             n += 1
+        
 
 
 class Student:
@@ -118,8 +128,6 @@ def main():
 
 def menu_choice():
     """Menu which get users input
-    Argument : nothing
-    Returns: user's choice
     """
 
     print(f"{colorama.Fore.GREEN}Press A to add new a student")

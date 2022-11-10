@@ -11,7 +11,7 @@ def check_int(prompt):
         try:
             value = int(input(prompt))
         except ValueError:
-            print(f"{colorama.Fore.RED}Wrong input! try again with an integer")
+            print(f"{colorama.Fore.RED}Wrong input! try again with an integer{colorama.Fore.WHITE}")
 
         else:
             if value > 0:
