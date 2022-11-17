@@ -22,9 +22,9 @@ class School:
         """adds a student to school list"""
         try :
             full_name = input("Write first name and last name with space: ").title().strip()
+            first_name, last_name = full_name.split()
         except ValueError:
             print("Type only first and last name! ")
-        first_name, last_name = full_name.split()
         id_number = typed_input.check_int("What is the id number? ")
         School.students.append(Student(first_name, last_name, int(id_number)))
     

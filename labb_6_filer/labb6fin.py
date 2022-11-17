@@ -22,7 +22,7 @@ class School:
                 full_name = (
                     input("Write first name and last name with space: ").title().strip()
                 )
-                first_name, last_name = full_name.split()
+                first_name, last_name = full_name.split() #splits with empty space
             except ValueError:
                 print(f"{colorama.Fore.RED}Type only first and last name! {colorama.Fore.WHITE}")
             else:
@@ -58,12 +58,17 @@ class School:
     def search_students(cls):
         """searchs for a student by its first name"""
         first_name = input("What is the first name of the person? ")
-        n = 0
-        while n <= len(School.students):
-            if School.students[n].first_name == first_name:
-                print(School.students[n])
-                break
-            n += 1
+        try:
+            n = 0
+            while n <= len(School.students):
+                if School.students[n].first_name == first_name:
+                    print(School.students[n])
+                    break
+                n += 1
+        
+        except IndexError:
+            print("Student not found")
+            
         
 
 
@@ -89,7 +94,7 @@ class Student:
 
 
 def check_file_name():
-    """checks if given filename exists"""
+    """checks if given file name exists"""
     while True:
         try:
             file_name = input(
@@ -109,7 +114,6 @@ def check_file_name():
 
 def main():
     """Main function of program"""
-    print(School)
     while True:
         user_answer = menu_choice()
         if user_answer == "a":
